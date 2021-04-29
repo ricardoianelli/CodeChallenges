@@ -13,6 +13,7 @@ namespace Tests.Maharishi
         [InlineData(new []{1, 2, 3, 4}, 0)]
         [InlineData(new int[]{}, 0)]
         [InlineData(new []{10}, 1)]
+        [InlineData(null, 0)]
         public void Maharishi1(int[] input, int expectedOutput)
         {
             var output = MaharishiSample1.IsACenteredArray(input);
