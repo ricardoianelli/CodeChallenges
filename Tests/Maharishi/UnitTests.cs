@@ -36,5 +36,36 @@ namespace Tests.Maharishi
             var output = SecondSample.DifferenceOfSums(input);
             output.Should().Be(expectedOutput);
         }
+
+        [Theory]
+        [InlineData(new []{'a', 'b', 'c'}, 0, 3, new []{'a', 'b', 'c'})]
+        [InlineData(new []{'a', 'b', 'c'}, 0, 2, new []{'a', 'b'})]
+        [InlineData(new []{'a', 'b', 'c'}, 0, 1, new []{'a'})]
+        [InlineData(new []{'a', 'b', 'c'}, 1, 2, new []{'b', 'c'})]
+        [InlineData(new []{'a', 'b', 'c'}, 1, 1, new []{'b'})]
+        [InlineData(new []{'a', 'b', 'c'}, 2, 1, new []{'c'})]
+        [InlineData(new []{'a', 'b', 'c'}, 1, 0, new char[]{})]
+        public void GetCharsFromArray_GivenValidInputs_ShouldReturnExpectedOutput(char[] charArray, int startIndex, int charsToTake, char[] expectedOutput)
+        {
+            var output = ThirdSample.GetCharsFromArray(charArray, startIndex, charsToTake);
+            output.Should().AllBeEquivalentTo(expectedOutput);
+        }
+        
+        [Theory]
+        [InlineData(new []{'a', 'b', 'c'}, 0, 4, null)]
+        [InlineData(new []{'a', 'b', 'c'}, 1, 3, null)]
+        [InlineData(new []{'a', 'b', 'c'}, 2, 2, null)]
+        [InlineData(new []{'a', 'b', 'c'}, 3, 1, null)]
+        [InlineData(new []{'a', 'b', 'c'}, -1, 2, null)]
+        [InlineData(new []{'a', 'b', 'c'}, -1, -2, null)]
+        [InlineData(new char[]{}, 0, 1, null)]
+        [InlineData(null, 0, 1, null)]
+        public void GetCharsFromArray_GivenInvalidInputs_ShouldReturnExpectedOutput(char[] charArray, int startIndex, int charsToTake, char[] expectedOutput)
+        {
+            var output = ThirdSample.GetCharsFromArray(charArray, startIndex, charsToTake);
+            output.Should().AllBeEquivalentTo(expectedOutput);
+        }
+        
+        
     }
 }
