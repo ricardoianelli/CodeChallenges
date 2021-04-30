@@ -14,7 +14,7 @@ namespace Tests.Maharishi
         [InlineData(new int[]{}, 0)]
         [InlineData(new []{10}, 1)]
         [InlineData(null, 0)]
-        public void Maharishi1(int[] input, int expectedOutput)
+        public void IsACenteredArray_GivenAnInput_ShouldMatchExpectedOutput(int[] input, int expectedOutput)
         {
             var output = FirstSample.IsACenteredArray(input);
             output.Should().Be(expectedOutput);
