@@ -66,5 +66,18 @@ namespace Tests.Maharishi
 
             output.Should().Equal(expectedOutput);
         }
+
+        [Theory]
+        [InlineData(1234, 4321)]
+        [InlineData(12005, 50021)]
+        [InlineData(1, 1)]
+        [InlineData(1000, 1)]
+        [InlineData(0, 0)]
+        [InlineData(-12345, -54321)]
+        public void ReverseNumber_GivenAValidNumber_ShouldReturnNumberReversed(int inputNumber, int outputNumber)
+        {
+            var output = FourthSample.ReverseNumber(inputNumber);
+            output.Should().Be(outputNumber);
+        }
     }
 }
