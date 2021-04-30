@@ -1,6 +1,6 @@
 ﻿namespace CodeChallenges.Maharishi
 {
-    public class MaharishiSample1
+    public class FirstSample
     {
         public static int IsACenteredArray(int[] sampleArray)
         {
