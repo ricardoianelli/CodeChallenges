@@ -6,7 +6,20 @@ namespace CodeChallenges.Maharishi
     {
         public static int DifferenceOfSums(int[] inputArray)
         {
-            throw new NotImplementedException();
+            if (inputArray is null)
+                return 0;
+
+            var sum = 0;
+
+            foreach (var number in inputArray)
+            {
+                if (number % 2 == 0)
+                    sum -= number;
+                else
+                    sum += number;
+            }
+
+            return sum;
         }
     }
 }
