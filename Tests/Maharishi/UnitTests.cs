@@ -63,7 +63,6 @@ namespace Tests.Maharishi
         public void GetCharsFromArray_GivenInvalidInputs_ShouldReturnExpectedOutput(char[] charArray, int startIndex, int charsToTake, char[] expectedOutput)
         {
             var output = ThirdSample.GetCharsFromArray(charArray, startIndex, charsToTake);
-
             output.Should().Equal(expectedOutput);
         }
 
@@ -79,5 +78,31 @@ namespace Tests.Maharishi
             var output = FourthSample.ReverseNumber(inputNumber);
             output.Should().Be(outputNumber);
         }
+
+        [Theory]
+        [InlineData(new []{1, 8, 3, 2}, new []{4, 2, 6, 1}, new []{1, 2})]
+        [InlineData(new []{1, 8, 3, 2, 6}, new []{2, 6, 1}, new []{2, 6, 1})]
+        [InlineData(new []{1, 3, 7, 9}, new []{7, 1, 9, 3}, new []{1, 3, 7, 9})]
+        [InlineData(new []{1, 2}, new []{3, 4}, new int[]{})]
+        [InlineData(new int[]{}, new []{1, 2, 3}, new int[]{})]
+        [InlineData(new []{1, 2}, new int[]{}, new int[]{})]
+        public void InnerJoin_GivenTwoArrays_ShouldReturnCommonNumberBetweenThem(int[] firstArray, int[] secondArray,
+            int[] expectedOutput)
+        {
+            var output = FifthSample.InnerJoin(firstArray, secondArray);
+            output.Should().Equal(expectedOutput);
+        }
+        
+        [Theory]
+        [InlineData(new []{1, 2}, null)]
+        [InlineData(null, new int[]{})]
+        [InlineData(null, null)]
+        public void InnerJoin_GivenANullInput_ShouldReturnNull(int[] firstArray, int[] secondArray)
+        {
+            var output = FifthSample.InnerJoin(firstArray, secondArray);
+            output.Should().BeNull();
+        }
+        
+        
     }
 }
