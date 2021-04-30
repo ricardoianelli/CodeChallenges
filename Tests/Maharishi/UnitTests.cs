@@ -4,7 +4,7 @@ using FluentAssertions;
 
 namespace Tests.Maharishi
 {
-    public class Sample1
+    public class UnitTests
     {
         [Theory]
         [InlineData(new []{1, 2, 3, 4, 5}, 0)]
