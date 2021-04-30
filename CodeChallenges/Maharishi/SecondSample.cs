@@ -2,7 +2,7 @@
 
 namespace CodeChallenges.Maharishi
 {
-    public class Sample2
+    public class SecondSample
     {
         public static int DifferenceOfSums(int[] inputArray)
         {
