@@ -48,7 +48,7 @@ namespace Tests.Maharishi
         public void GetCharsFromArray_GivenValidInputs_ShouldReturnExpectedOutput(char[] charArray, int startIndex, int charsToTake, char[] expectedOutput)
         {
             var output = ThirdSample.GetCharsFromArray(charArray, startIndex, charsToTake);
-            output.Should().AllBeEquivalentTo(expectedOutput);
+            output.Should().Equal(expectedOutput);
         }
         
         [Theory]
@@ -63,9 +63,8 @@ namespace Tests.Maharishi
         public void GetCharsFromArray_GivenInvalidInputs_ShouldReturnExpectedOutput(char[] charArray, int startIndex, int charsToTake, char[] expectedOutput)
         {
             var output = ThirdSample.GetCharsFromArray(charArray, startIndex, charsToTake);
-            output.Should().AllBeEquivalentTo(expectedOutput);
+
+            output.Should().Equal(expectedOutput);
         }
-        
-        
     }
 }
