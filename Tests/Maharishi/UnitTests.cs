@@ -102,7 +102,34 @@ namespace Tests.Maharishi
             var output = FifthSample.InnerJoin(firstArray, secondArray);
             output.Should().BeNull();
         }
+
+        [Theory]
+        [InlineData(new []{1, 8, 3, 7, 10, 2}, 3)]
+        [InlineData(new []{1, 5, 3, 1, 1, 1, 1, 1, 1}, 2)]
+        [InlineData(new []{2, 1, 1, 1, 2, 1, 7}, 5)]
+        public void GetPointOfEquilibrium_GivenArraysThatHaveAPoE_ShouldReturnTheirIndexes(int[] inputArray, int poeIndex)
+        {
+            var result = SixthSample.GetPointOfEquilibrium(inputArray);
+            result.Should().Be(poeIndex);
+        }
         
+        [Theory]
+        [InlineData(new []{1, 2, 3})]
+        [InlineData(new []{3, 4, 5, 10})]
+        [InlineData(new []{1, 2, 10, 3, 4})]
+        public void GetPointOfEquilibrium_GivenArraysThatDoesNotHaveAPoE_ShouldReturnNegativeOne(int[] inputArray)
+        {
+            var result = SixthSample.GetPointOfEquilibrium(inputArray);
+            result.Should().Be(-1);
+        }
         
+        [Theory]
+        [InlineData(new int[0])]
+        [InlineData(null)]
+        public void GetPointOfEquilibrium_GivenAnEmptyOrNullArray_ShouldReturnNegativeOne(int[] inputArray)
+        {
+            var result = SixthSample.GetPointOfEquilibrium(inputArray);
+            result.Should().Be(-1);
+        }
     }
 }
