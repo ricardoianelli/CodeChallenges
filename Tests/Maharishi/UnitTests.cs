@@ -114,6 +114,7 @@ namespace Tests.Maharishi
         }
         
         [Theory]
+        [InlineData(new []{2})]
         [InlineData(new []{1, 2, 3})]
         [InlineData(new []{3, 4, 5, 10})]
         [InlineData(new []{1, 2, 10, 3, 4})]
