@@ -12,23 +12,29 @@ namespace CodeChallenges.Maharishi
             var rightSum = 0;
             var leftSum = 0;
 
-            for (int l = 1; l < array.Length; l++)
-            {
-                leftSum += array[l-1];
-                for (int r = array.Length-1; r > l; r--)
-                {
-                    rightSum += array[r];
-                }
+            var leftIndex = 0;
+            var rightIndex = array.Length - 1;
 
+            var pointOfEq = -1;
+
+            while (leftIndex < rightIndex)
+            {
                 if (leftSum > rightSum)
-                    break; 
-                if (leftSum == rightSum)
-                    return l;
-                
-                rightSum = 0;
+                {
+                    rightSum += array[rightIndex];
+                    rightIndex--;
+                }
+                else
+                {
+                    leftSum += array[leftIndex];
+                    leftIndex++;
+                }
             }
 
-            return -1;
+            if (leftSum == rightSum)
+                pointOfEq = leftIndex;
+            
+            return pointOfEq;
         }
     }
 }
