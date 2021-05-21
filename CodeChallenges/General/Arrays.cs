@@ -1,16 +1,15 @@
-﻿using System;
-
-namespace CodeChallenges.General
+﻿namespace CodeChallenges.General
 {
     public static class Arrays
     {
-        public static int[] ReverseArray(int[] inputArray)
+        public static T[] ReverseArray<T>(T[] inputArray)
         {
             if (inputArray is null || inputArray.Length < 2)
                 return inputArray;
             
-            int lastPickedValue;
+            T lastPickedValue;
             int oppositeIndex;
+            
             var lastIndex = inputArray.Length - 1;
             for (int i = 0; i < inputArray.Length / 2; i++)
             {
