@@ -18,5 +18,18 @@ namespace Tests.General
             var result = Arrays.ReverseArray(inputArray);
             result.Should().Equal(expected);
         }
+        
+        [Theory]
+        [InlineData(null, null)]
+        [InlineData(new char[] {}, new char[] {})]
+        [InlineData(new[] {'a'}, new[] {'a'})]
+        [InlineData(new[] {'a', 'b'}, new[] {'b', 'a'})]
+        [InlineData(new[] {'a', 'e', 'b'}, new[] {'b', 'e', 'a'})]
+        [InlineData(new[] {'a', 'e', 'a', 'f'}, new[] {'f', 'a', 'e', 'a'})]
+        public void ReverseArray_GivenAnCharArray_ReturnTheArrayReversed(char[] inputArray, char[] expected)
+        {
+            var result = Arrays.ReverseArray(inputArray);
+            result.Should().Equal(expected);
+        }
     }
 }
