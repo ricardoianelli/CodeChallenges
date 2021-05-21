@@ -6,12 +6,14 @@ namespace Tests.General
 {
     public class ArraysTests
     {
-        [Fact]
-        public void ReverseArray_GivenAnIntegerArray_ReturnTheArrayReversed()
+        [Theory]
+        [InlineData(null, null)]
+        [InlineData(new int[] {}, new int[] {})]
+        [InlineData(new[] {1}, new[] {1})]
+        [InlineData(new[] {1, 2}, new[] {2, 1})]
+        [InlineData(new[] {1, 5, 3, 6, 1, 3}, new[] {3, 1, 6, 3, 5, 1})]
+        public void ReverseArray_GivenAnIntegerArray_ReturnTheArrayReversed(int[] inputArray, int[] expected)
         {
-            var inputArray = new[] {1, 2, 3, 4, 5, 6};
-            var expected = new[] {6, 5, 4, 3, 2, 1};
-
             var result = Arrays.ReverseArray(inputArray);
             result.Should().Equal(expected);
         }
