@@ -21,5 +21,29 @@
 
             return inputArray;
         }
+
+        public static int GetMin(int[] inputArray)
+        {
+            var currentMin = inputArray[0];
+            foreach (var number in inputArray)
+            {
+                if (number < currentMin)
+                    currentMin = number;
+            }
+
+            return currentMin;
+        }
+        
+        public static int GetMax(int[] inputArray)
+        {
+            var currentMax = inputArray[0];
+            foreach (var number in inputArray)
+            {
+                if (number > currentMax)
+                    currentMax = number;
+            }
+
+            return currentMax;
+        }
     }
 }
