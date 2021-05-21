@@ -2,17 +2,19 @@
 {
     public static class Numbers
     {
-        public static int RaiseNumber(int n, int power)
+        public static double RaiseNumber(double n, int power)
         {
-            switch (n)
-            {
-                case 1:
-                    return 1;
-                case <= 0:
-                    return 0;
-            }
+            double result = 1;
 
-            var result = 1;
+            if (n == 0 || n == 1)
+                return n;
+
+            if (power < 0)
+            {
+                n = 1 / n;
+                power *= -1;
+            }
+                
             for (int i = 0; i < power; i++)
             {
                 result *= n;
