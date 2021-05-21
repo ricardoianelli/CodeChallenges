@@ -31,5 +31,27 @@ namespace Tests.General
             var result = Arrays.ReverseArray(inputArray);
             result.Should().Equal(expected);
         }
+
+        [Theory]
+        [InlineData(new [] {1}, 1)]
+        [InlineData(new [] {1,2,3}, 1)]
+        [InlineData(new [] {10,-4,3}, -4)]
+        [InlineData(new [] {33,12,5}, 5)]
+        public void GetMin_GivenAnIntegerArray_ShouldReturnMinimumValueOnArray(int[] inputArray, int expectedResult)
+        {
+            var result = Arrays.GetMin(inputArray);
+            result.Should().Be(expectedResult);
+        }
+        
+        [Theory]
+        [InlineData(new [] {1}, 1)]
+        [InlineData(new [] {1,2,3}, 3)]
+        [InlineData(new [] {10,-4,3}, 10)]
+        [InlineData(new [] {33,12,5}, 33)]
+        public void GetMax_GivenAnIntegerArray_ShouldReturnMaximumValueOnArray(int[] inputArray, int expectedResult)
+        {
+            var result = Arrays.GetMax(inputArray);
+            result.Should().Be(expectedResult);
+        }
     }
 }
